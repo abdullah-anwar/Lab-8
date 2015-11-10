@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>click demo</title>
+  <style>
+    body {
+    	text-align: center;
+      display: block;
+    }
+    #submit{
+      border: 10px;
+      font-size: 15px;
+      width: 20em;  
+      height: 2em;
+    }
+
+    #createForm{
+      font-size: 25px;
+      font-weight: bold;
+      background: #3e3e3e;
+      color: #666;
+      padding: 10px;
+      display: block;
+      text-decoration: none;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    a {
+      font-size: 25px;
+      font-weight: bold;
+      background: #e3e3e3;
+      color: #333;
+      padding: 10px;
+      display: block;
+      text-decoration: none;
+      border-radius: 10px;
+      margin: 10px;
+  }
+  a:hover{
+     color: red;
+  }
+
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<a  href = "#" id = "createForm" onclick="createForm()">Create Form</a>
+ 
+<script>
+
+var text,pass,rdio,chck,fle,nm,kg,ta,out;
+var json;
+
+function createForm() {
+
+  var Text = document.createElement("a");
+  Text.id = "createText";
+  Text.innerHTML = "Create Textfield "
+  Text.setAttribute("href","#");
+
+  var Password = document.createElement("a");
+  Password.id = "createPassword";
+  Password.innerHTML = "Create Password "
+  Password.setAttribute("href","#");
+
+  var Radio = document.createElement("a");
+  Radio.id = "createRadio";
+  Radio.innerHTML = "Create Radio Button "
+  Radio.setAttribute("href","#");
+
+  var Check = document.createElement("a");
+  Check.id = "createCheck";
+  Check.innerHTML = "Create Checkbox "
+  Check.setAttribute("href","#");
+
+  var File = document.createElement("a");
+  File.id = "createFile";
+  File.innerHTML = "Create File "
+  File.setAttribute("href","#");
+
+  var Number = document.createElement("a");
+  Number.id = "createNumber";
+  Number.innerHTML = "Create Number Field "
+  Number.setAttribute("href","#");
+
+  var Keygen = document.createElement("a");
+  Keygen.id = "createKeygen";
+  Keygen.innerHTML = "Create Keygen "
+  Keygen.setAttribute("href","#");
+
+  var TextArea = document.createElement("a");
+  TextArea.id = "createTextArea";
+  TextArea.innerHTML = "Create Text Area "
+  TextArea.setAttribute("href","#");
+
+  var Output = document.createElement("a");
+  Output.id = "createOutput";
+  Output.innerHTML = "Create Output "
+  Output.setAttribute("href","#");
+
+  var formName = prompt("Enter Form Name:");
+  var formID = prompt("Enter Form Name:");
+  var formURL = prompt("Enter URL:");
+  var form = document.createElement("form");
+  form.setAttribute("name",formName);
+  form.setAttribute("id",formID);
+  form.setAttribute("action",formURL);
+
+  var submit = document.createElement("button");
+  submit.innerHTML = "Submit"
+  submit.id = "submit";
+  submit.type = 'submit';
+
+  $('body').append(Text);
+  $('body').append(Password);
+  $('body').append(Radio);
+  $('body').append(Check);
+  $('body').append(File);
+  $('body').append(Number);
+  $('body').append(Keygen);
+  $('body').append(TextArea);
+  $('body').append(Output);
+  $('body').append(form);
+  $('body').append(submit);
+
+
+  json = '{"form":[';
+  
+  Text.onclick = function() {
+    var input = document.createElement("input");
+	  input.type = "text";
+	  text = input.id = prompt("Enter ID:");
+
+    json+='{"element":"input", "type":"'+input.type+'","id":"'+text+'","value":"'+input.value+'"},';
+
+	  form.appendChild(input); // put it into the DOM
+};
+
+ Password.onclick = function() {
+  	  var input = document.createElement("input");
+	  input.type = "password";
+	  pass = input.id = prompt("Enter ID:");
+
+    json+='{"element":"input", "type":"'+input.type+'","id":"'+pass+'","value":"'+input.value+'"},';
+
+	  form.appendChild(input); // put it into the DOM
+};
+
+ Radio.onclick = function() {
+  	var input = document.createElement("input");
+	  input.type = "radio";
+	  rdio = input.id = prompt("Enter ID:");
+
+    json+='{"element":"input", "type":"'+input.type+'","id":"'+rdio+'","value":"'+input.value+'"},';
+
+	  form.appendChild(input); // put it into the DOM
+};
+
+ Check.onclick = function() {
+  	var input = document.createElement("input");
+	  input.type = "checkbox";
+	  chck = input.id = prompt("Enter ID:");
+
+    json+='{"element":"input", "type":"'+input.type+'","id":"'+chck+'","value":"'+input.value+'"},';
+
+	  form.appendChild(input); // put it into the DOM
+};
+  
+
+ File.onclick = function() {
+  	var input = document.createElement("input");
+	  input.type = "file";
+	  fle = input.id = prompt("Enter ID:");
+
+    json+='{"element":"input", "type":"'+input.type+'","id":"'+text+'","value":"'+input.value+'"},';
+
+	  form.appendChild(input); // put it into the DOM
+};
+
+
+ Number.onclick = function() {
+  	var input = document.createElement("input");
+	  input.type = "number";
+	  nm = input.id = prompt("Enter ID:");
+
+    json+='{"element":"input", "type":"'+input.type+'","id":"'+nm+'","value":"'+input.value+'"},';
+
+	  form.appendChild(input); // put it into the DOM
+};
+
+ Keygen.onclick = function() {
+  	var input = document.createElement("keygen");
+	  input.type = "keygen";
+	  kg = input.id = prompt("Enter ID:");
+
+    json+='{"element":"input", "type":"'+input.type+'","id":"'+kg+'","value":"'+input.value+'"},';
+
+	  form.appendChild(input); // put it into the DOM
+};
+
+ TextArea.onclick = function() {
+  	var input = document.createElement("TextArea");
+	  input.type = "TextArea";
+	  ta = input.id = prompt("Enter ID:");
+
+    json+='{"element":"input", "type":"'+input.type+'","id":"'+ta+'","value":"'+input.value+'"},';
+
+	  form.appendChild(input); // put it into the DOM
+};
+
+ Output.onclick = function() {
+  	var input = document.createElement("output");
+	  input.type = "output";
+	  out = input.id = prompt("Enter ID:");
+
+    json+='{"element":"input", "type":"'+input.type+'","id":"'+out+'","value":"'+input.value+'"},';
+
+	  form.appendChild(input); // put it into the DOM
+};
+
+submit.onclick = function () {
+  if(document.forms[formID][text] != null)
+  {
+    var X = document.forms[formID][text].value;
+    if (X == null || X == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+}
+
+if(document.forms[formID][pass] != null)
+{
+    var X = document.forms[formID][pass].value;
+    if (X == null || X == "") {
+        alert("Password must be filled out");
+        return false;
+    }
+}
+
+if(document.forms[formID][nm] != null)
+{
+    var X = document.forms[formID][nm].value;
+    if (X == null || X == "") {
+        alert("Number must be filled out");
+        return false;
+    }
+}
+
+if(document.forms[formID][ta] != null)
+{
+    var X = document.forms[formID][ta].value;
+    if (X == null || X == "") {
+        alert("Text Area must be filled out");
+        return false;
+    }
+}
+json = json.substring(0, json.length - 1);
+    json+="]}";
+    localStorage.setItem("json", json);
+    alert(localStorage.getItem("json"));
+}
+
+};
+
+	  var updateLocalData = function(data){
+	  	if(supports_html5_storage()){
+	  		localStorage.setItem('form',JSON.stringify(data));
+	  	}
+	  }
+
+	  var getLocalData = function(){
+	  	if(supports_html5_storage()){
+	  		var formData = JSON.parse(localStorage.getItem('form'));
+	  		if(formData !== null){
+	  			return builForm(formData);
+	  		}
+	  	}
+	  }
+
+  
+
+</script>
+ 
+</body>
+</html>
